@@ -12,7 +12,6 @@ export const processar = async (req: Request, res: Response) => {
         let dadosGit;
         let page = 0;
         let dataInicial = "2014-01-01"
-        let dataFinal = "2014-02-01"
 
         do{
 
@@ -23,7 +22,7 @@ export const processar = async (req: Request, res: Response) => {
             page++;
         
             
-            const urlEnv = `https://api.github.com/search/repositories?q=microservice+created:>=${dataInicial}+created:<=${dataFinal}&sort=created&order=asc&per_page=100&page=${page}`; 
+            const urlEnv = `https://api.github.com/search/repositories?q=microservice+created:>=${dataInicial}&sort=created&order=asc&per_page=100&page=${page}`; 
             
             dadosGit = await axios.get(urlEnv, { headers: { Authorization: 'token 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' } });
 
